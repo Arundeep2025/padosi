@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Padosi – Trusted help from your neighbourhood</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F7F8F4;--surface:#fff;--ink:#14231F;--mute:#68746F;--line:#E3E8E2;--acc:#0F6B57;--deep:#0B3B31;--tint:#DDF0E8;--sun:#F2A93B;--sunbg:#FFF1D6;--stage:#E4E9E3;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1A17;--surface:#192823;--ink:#EAF4EF;--mute:#9DB0A9;--line:#2A3D37;--tint:#17382F;--sunbg:#3A2D12;--stage:#080F0D;--acc:#2FB391}}
+:root[data-theme="dark"]{--bg:#0F1A17;--surface:#192823;--ink:#EAF4EF;--mute:#9DB0A9;--line:#2A3D37;--tint:#17382F;--sunbg:#3A2D12;--stage:#080F0D;--acc:#2FB391}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{background:var(--stage);color:var(--ink);font:400 15px/1.45 'DM Sans',system-ui,sans-serif;display:flex;align-items:center;justify-content:center}
+h1,h2,h3,.disp{font-family:'Bricolage Grotesque','DM Sans',sans-serif;letter-spacing:-.02em}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.phone{width:100%;max-width:400px;height:100%;max-height:820px;background:var(--bg);position:relative;overflow:hidden;display:flex;flex-direction:column}
+@media(min-width:520px){.phone{border-radius:38px;box-shadow:0 30px 80px rgba(0,0,0,.3);border:8px solid #0c1613}}
+.scroll{flex:1;overflow-y:auto;padding:20px 20px 100px}
+.row{display:flex;align-items:center;gap:12px}.sp{justify-content:space-between}
+.mute{color:var(--mute);font-size:13px}
+h1.t{font-size:28px;line-height:1.08}
+.avatar{width:44px;height:44px;border-radius:50%;background:var(--deep);color:#fff;display:grid;place-items:center;font-weight:700;flex:none}
+.avatar.lg{width:72px;height:72px;font-size:26px;border-radius:24px}
+.search{display:flex;gap:10px;align-items:center;margin-top:18px;background:var(--surface);border:1.5px solid var(--line);border-radius:18px;padding:0 14px}
+.search input{flex:1;border:0;background:none;padding:15px 0;font:inherit;color:var(--ink);outline-offset:6px}
+.hero{margin-top:16px;background:var(--deep);color:#fff;border-radius:26px;padding:20px;position:relative;overflow:hidden}
+.hero b{font:800 21px/1.15 'Bricolage Grotesque';display:block;max-width:15ch}
+.hero p{opacity:.8;margin-top:6px;font-size:14px;max-width:26ch}
+.hero .sun{position:absolute;right:-24px;bottom:-30px;width:120px;height:120px;border-radius:50%;background:var(--sun);opacity:.95}
+.hero .sun::after{content:"";position:absolute;inset:22px;border-radius:50%;border:3px solid var(--deep);opacity:.25}
+.sec{margin:24px 0 10px;font-size:19px}
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.cat{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:12.5px;font-weight:500;padding:12px 0;border-radius:18px;background:var(--surface);border:1px solid var(--line)}
+.cat span{font-size:26px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:14px;margin-bottom:10px;width:100%;text-align:left}
+.grow{flex:1;min-width:0}.grow b{display:block}
+.tag{font-size:12px;font-weight:700;padding:3px 9px;border-radius:99px;background:var(--tint);color:var(--acc)}
+.tag.sun{background:var(--sunbg);color:#9A6200}
+@media(prefers-color-scheme:dark){.tag.sun{color:var(--sun)}}
+.star{color:var(--sun);font-weight:700}
+.price{font:800 17px 'Bricolage Grotesque'}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--acc);color:#fff;font-weight:700;padding:15px 22px;border-radius:16px;min-height:50px}
+@media(prefers-color-scheme:dark){.btn{color:#04120D}}
+.btn.full{width:100%}.btn.ghost{background:var(--tint);color:var(--acc)}
+.btn:active{transform:scale(.97)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 0 10px;scrollbar-width:none}
+.chip{flex:none;padding:9px 16px;border-radius:99px;border:1.5px solid var(--line);background:var(--surface);font-weight:700}
+.chip[aria-pressed=true]{background:var(--acc);border-color:var(--acc);color:#fff}
+@media(prefers-color-scheme:dark){.chip[aria-pressed=true]{color:#04120D}}
+.back{margin-bottom:8px;color:var(--mute);font-weight:700;padding:6px 0}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+.facts div{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px;text-align:center}
+.facts b{font:800 20px 'Bricolage Grotesque';display:block}
+.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.slots .chip{border-radius:14px;text-align:center;padding:12px 0}
+.bar{position:absolute;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);padding:12px 20px calc(14px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:14px}
+nav{position:absolute;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);padding:8px 8px calc(10px + env(safe-area-inset-bottom,0px))}
+nav button{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:12px;color:var(--mute);padding:6px 0;font-weight:500}
+nav button[aria-current=page]{color:var(--acc);font-weight:700}
+nav svg{width:24px;height:24px}
+.ok{text-align:center;padding-top:50px}
+.ok .tick{width:96px;height:96px;border-radius:50%;background:var(--acc);margin:0 auto 20px;display:grid;place-items:center;animation:pop .5s cubic-bezier(.2,1.4,.4,1)}
+@keyframes pop{from{transform:scale(.3);opacity:0}}
+.sw{width:54px;height:32px;border-radius:99px;background:var(--line);position:relative;flex:none;transition:.2s}
+.sw::after{content:"";position:absolute;top:4px;left:4px;width:24px;height:24px;border-radius:50%;background:#fff;transition:.2s}
+.sw[aria-checked=true]{background:var(--acc)}.sw[aria-checked=true]::after{left:26px}
+.toast{position:absolute;left:20px;right:20px;bottom:96px;background:var(--ink);color:var(--bg);padding:14px 16px;border-radius:14px;opacity:0;transform:translateY(10px);transition:.25s;pointer-events:none;z-index:5}
+.toast.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media(max-width:360px){.scroll{padding:16px 16px 100px}h1.t{font-size:24px}.cats{gap:8px}.cat{font-size:11.5px}.cat span{font-size:22px}.hero b{font-size:18px}}
+@media(max-height:700px){.hero{padding:16px}.ok{padding-top:20px}.scroll{padding-top:14px}}
+@media(min-width:900px){body{background:radial-gradient(circle at 25% 15%,#1c6b58,var(--stage) 65%)}.phone{height:min(820px,94vh)}}
+</style>
+</head>
+<body>
+<div class="phone">
+  <div class="scroll" id="view"></div>
+  <div id="foot"></div>
+  <div class="toast" id="toast" role="status"></div>
+</div>
+<script>
+const CATS=[['Plumber','🔧'],['Electrician','💡'],['Tutor','📚'],['Tiffin','🍱'],['Cleaning','🧹'],['Cook','🍳'],['Driver','🚗'],['Pet care','🐕']];
+const H=[
+ {id:1,n:'Ramesh Kumar',c:'Plumber',r:4.9,j:132,p:350,u:'visit',d:0.4,a:'Sector 29',about:'15 years fixing leaks, geysers and bathroom fittings. Brings his own tools and clears the mess after the job.',v:1,tag:'Verified by 18 neighbours'},
+ {id:2,n:'Sunita Devi',c:'Tiffin',r:4.8,j:96,p:90,u:'meal',d:0.7,a:'Sector 28',about:'Home-style dal, sabzi and rotis, less oil, delivered by 1 pm. Weekly plans with a Sunday special.',v:1,tag:'Verified by 11 neighbours'},
+ {id:3,n:'Anjali Bose',c:'Tutor',r:4.9,j:58,p:500,u:'hour',d:1.1,a:'DLF Phase 2',about:'Maths and Science for classes 6 to 10. Former school teacher. Patient with students who feel stuck.',v:1,tag:'Verified by 9 neighbours'},
+ {id:4,n:'Imran Ali',c:'Electrician',r:4.7,j:204,p:300,u:'visit',d:1.3,a:'Sector 30',about:'Wiring, fans, inverter and MCB fixes. Same-day visits for power cuts and short circuits.',v:1,tag:'Verified by 22 neighbours'},
+ {id:5,n:'Meena Rawat',c:'Cleaning',r:4.6,j:73,p:600,u:'visit',d:1.8,a:'Sector 31',about:'Deep cleaning for kitchens and bathrooms, 2-person team, eco-friendly products on request.',v:0,tag:'Verification pending'}];
+const SLOTS=['9 AM','11 AM','2 PM','4 PM','6 PM','7 PM'],DAYS=['Today','Tomorrow','Sat'];
+const S={tab:'home',cat:'All',hid:null,day:'Today',slot:'11 AM',q:'',book:[],helper:false,sub:false,hp:{skill:'Tutor',rate:'400',unit:'hour',days:['Mon','Wed','Fri']}};
+const $=s=>document.querySelector(s),v=$('#view'),foot=$('#foot');
+const ic={home:'<path d="M3 11l9-8 9 8v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/>',find:'<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>',cal:'<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/>',user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-6 8-6s8 2 8 6"/>'};
+const svg=k=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ic[k]}</svg>`;
+const ini=n=>n.split(' ').map(x=>x[0]).join('');
+function keep(){const r=$('#rt');if(r)S.hp.rate=r.value}
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('on'),2200)}
+const hc=h=>`<button class="card row" data-h="${h.id}"><div class="avatar">${ini(h.n)}</div><div class="grow"><b>${h.n}</b><span class="mute">${h.c} · ${h.d} km · ${h.a}</span><div style="margin-top:4px"><span class="star">★ ${h.r}</span> <span class="mute">(${h.j} jobs)</span></div></div><div style="text-align:right"><div class="price">₹${h.p}</div><span class="mute">/${h.u}</span></div></button>`;
+const list=()=>H.filter(h=>(S.cat==='All'||h.c===S.cat)&&h.n.concat(h.c).toLowerCase().includes(S.q.toLowerCase()));
+const V={
+home:()=>`<div class="row sp"><div><span class="mute">Sector 29, Gurugram</span><h1 class="t">Help is just<br>next door.</h1></div><div class="avatar">A</div></div>
+ <div class="search"><span aria-hidden="true">🔍</span><input id="q" placeholder="Search plumber, tutor, tiffin…" aria-label="Search helpers"></div>
+ <div class="hero"><b>Hire people your neighbours already trust.</b><p>Every helper is reviewed by someone on your street.</p><div class="sun"></div></div>
+ <h3 class="sec">What do you need?</h3><div class="cats">${CATS.map(c=>`<button class="cat" data-cat="${c[0]}"><span>${c[1]}</span>${c[0]}</button>`).join('')}</div>
+ <h3 class="sec">Top rated nearby</h3>${H.slice(0,3).map(hc).join('')}`,
+find:()=>`<h1 class="t">Find a helper</h1><p class="mute">Within 2 km of you</p>
+ <div class="search"><span aria-hidden="true">🔍</span><input id="q" placeholder="Search by name or skill" aria-label="Search helpers" value="${S.q}"></div>
+ <div class="chips" style="margin-top:12px">${['All',...CATS.map(c=>c[0])].map(c=>`<button class="chip" aria-pressed="${S.cat===c}" data-cat="${c}">${c}</button>`).join('')}</div>
+ <div id="res">${resHtml()}</div>`,
+prof:()=>{const h=H.find(x=>x.id===S.hid);return `<button class="back" data-go="find">‹ Back</button>
+ <div class="row"><div class="avatar lg">${ini(h.n)}</div><div><h1 class="t" style="font-size:24px">${h.n}</h1><span class="mute">${h.c} · ${h.a}</span><div style="margin-top:6px"><span class="tag">${h.v?'✓ ':''}${h.tag}</span></div></div></div>
+ <div class="facts"><div><b class="star">★ ${h.r}</b><span class="mute">rating</span></div><div><b>${h.j}</b><span class="mute">jobs done</span></div><div><b>${h.d} km</b><span class="mute">away</span></div></div>
+ <h3 class="sec" style="margin-top:6px">About</h3><p>${h.about}</p>
+ <h3 class="sec">What neighbours say</h3>
+ <div class="card"><b>Mrs. Kapoor, Sector 29</b><p class="mute" style="font-size:14px;margin-top:4px">“On time, fair price, and explained the problem before starting. Called him again last month.”</p></div>
+ <div class="card"><b>Dev Arora, Sector 30</b><p class="mute" style="font-size:14px;margin-top:4px">“Very polite and neat work. Highly recommend to anyone on our street.”</p></div>`},
+book:()=>{const h=H.find(x=>x.id===S.hid);return `<button class="back" data-go="prof">‹ Back</button><h1 class="t" style="font-size:26px">Book ${h.n.split(' ')[0]}</h1><p class="mute">Pick a time that suits you</p>
+ <h3 class="sec">Day</h3><div class="chips">${DAYS.map(d=>`<button class="chip" aria-pressed="${S.day===d}" data-day="${d}">${d}</button>`).join('')}</div>
+ <h3 class="sec" style="margin-top:12px">Time</h3><div class="slots">${SLOTS.map(s=>`<button class="chip" aria-pressed="${S.slot===s}" data-slot="${s}">${s}</button>`).join('')}</div>
+ <h3 class="sec">What needs doing?</h3><div class="search" style="margin-top:0"><input id="note" placeholder="e.g. Kitchen tap is leaking" aria-label="Job details"></div>
+ <div class="card row" style="margin-top:18px;background:var(--sunbg);border:0"><div class="grow"><b>Pay after the job</b><span class="mute">Pay ${h.n.split(' ')[0]} directly in cash or UPI when work is done.</span></div></div>`},
+done:()=>{const h=H.find(x=>x.id===S.hid);return `<div class="ok"><div class="tick"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div><h1 class="t">Booked!</h1><p class="mute" style="margin:8px 0 22px">${h.n} will arrive<br><b style="color:var(--ink)">${S.day}, ${S.slot}</b></p><button class="btn full" data-go="mine">See my bookings</button><button class="btn ghost full" style="margin-top:10px" data-go="home">Back to home</button></div>`},
+setup:()=>`<button class="back" data-go="me">‹ Back</button><h1 class="t" style="font-size:26px">Offer your skills</h1><p class="mute">Neighbours within 2 km will see you in search.</p>
+ <h3 class="sec">Your skill</h3><div class="chips" style="flex-wrap:wrap">${CATS.map(c=>`<button class="chip" aria-pressed="${S.hp.skill===c[0]}" data-sk="${c[0]}">${c[1]} ${c[0]}</button>`).join('')}</div>
+ <h3 class="sec">Your rate</h3><div class="search" style="margin-top:0"><span aria-hidden="true">₹</span><input id="rt" type="number" inputmode="numeric" value="${S.hp.rate}" aria-label="Rate in rupees"></div>
+ <div class="chips" style="margin-top:10px">${['visit','hour','meal'].map(u=>`<button class="chip" aria-pressed="${S.hp.unit===u}" data-un="${u}">per ${u}</button>`).join('')}</div>
+ <h3 class="sec">Days you’re free</h3><div class="chips" style="flex-wrap:wrap">${['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].map(d=>`<button class="chip" aria-pressed="${S.hp.days.includes(d)}" data-dy="${d}">${d}</button>`).join('')}</div>
+ <div class="card row" style="margin-top:14px;background:var(--sunbg);border:0"><div class="grow"><b>How you get verified</b><span class="mute">Two neighbours who’ve worked with you confirm your skill. Then you go live.</span></div></div>`,
+mine:()=>`<h1 class="t">My bookings</h1><p class="mute">Upcoming and past</p><div style="margin-top:14px">`+(S.book.length?S.book.map(b=>`<div class="card row"><div class="avatar">${ini(b.n)}</div><div class="grow"><b>${b.n}</b><span class="mute">${b.c} · ${b.day}, ${b.slot}</span></div><span class="tag sun">Upcoming</span></div>`).join(''):`<div class="card"><b>No bookings yet</b><p class="mute">Find a trusted helper nearby and book in under a minute.</p><button class="btn full" style="margin-top:12px" data-go="find">Find a helper</button></div>`)+`</div>
+ <div class="card row" style="opacity:.85"><div class="avatar">RK</div><div class="grow"><b>Ramesh Kumar</b><span class="mute">Plumber · 12 Oct</span></div><span class="tag">Done</span></div>`,
+me:()=>`<div class="row"><div class="avatar lg">A</div><div><h1 class="t" style="font-size:24px">Arjun Rao</h1><span class="mute">Sector 29, Gurugram</span></div></div>
+ <div class="card row sp" style="margin-top:20px"><div class="grow"><b>Offer your skills</b><span class="mute">${S.helper?'You appear in search to neighbours within 2 km':'Earn by helping people on your street'}</span></div><button class="sw" role="switch" aria-checked="${S.helper}" aria-label="Offer your skills" data-sw></button></div>
+ ${S.helper?`<div class="card"><b>Your helper profile</b>${S.sub?`<p class="mute" style="margin:4px 0 10px">${S.hp.skill} · ₹${S.hp.rate}/${S.hp.unit} · ${S.hp.days.join(', ')}</p><span class="tag sun">Awaiting 2 neighbour verifications</span>`:`<p class="mute" style="margin:4px 0 12px">Add a skill, your rate and your hours. Two neighbours verify you before you go live.</p>`}<button class="btn ghost full" style="margin-top:12px" data-go="setup">${S.sub?'Edit profile':'Set up profile'}</button></div>`:''}
+ <div class="facts"><div><b>3</b><span class="mute">bookings</span></div><div><b>2</b><span class="mute">reviews</span></div><div><b>14</b><span class="mute">neighbours</span></div></div>`
+};
+function resHtml(){const l=list();return l.length?l.map(hc).join(''):`<div class="card"><b>No helpers found</b><p class="mute">Try another skill, or clear the search.</p></div>`}
+function nav(){
+ const t=S.tab,on=k=>({home:['home'],find:['find','prof','book','done'],mine:['mine'],me:['me']}[k].includes(t))?'aria-current="page"':'';
+ const b=(k,l,i)=>`<button data-go="${k}" ${on(k)}>${svg(i)}${l}</button>`;
+ if(t==='prof'){const h=H.find(x=>x.id===S.hid);foot.innerHTML=`<div class="bar"><div><span class="mute">From</span><div class="price">₹${h.p}<span class="mute" style="font-family:DM Sans;font-weight:400">/${h.u}</span></div></div><button class="btn" style="flex:1" data-go="book">Book ${h.n.split(' ')[0]}</button></div>`}
+ else if(t==='book'){foot.innerHTML=`<div class="bar"><button class="btn full" data-confirm>Confirm for ${S.day}, ${S.slot}</button></div>`}
+ else if(t==='done'){foot.innerHTML=''}
+ else if(t==='setup'){foot.innerHTML=`<div class="bar"><button class="btn full" data-submit>Submit for verification</button></div>`}
+ else foot.innerHTML=`<nav>${b('home','Home','home')+b('find','Find','find')+b('mine','Bookings','cal')+b('me','Profile','user')}</nav>`;
+}
+function render(){v.innerHTML=V[S.tab]();nav()}
+function go(t){S.tab=t;render();v.scrollTop=0}
+document.addEventListener('input',e=>{if(e.target.id==='q'){S.q=e.target.value;if(S.tab==='find')$('#res').innerHTML=resHtml();else{S.tab='find';render();const q=$('#q');q.focus();q.setSelectionRange(S.q.length,S.q.length)}}});
+document.addEventListener('click',e=>{
+ const t=e.target.closest('button');if(!t)return;const d=t.dataset;
+ if(d.go)return go(d.go);
+ if(d.cat!==undefined){S.cat=d.cat;S.q='';return go('find')}
+ if(d.h){S.hid=+d.h;return go('prof')}
+ if(d.day){S.day=d.day;return render()}
+ if(d.slot){S.slot=d.slot;return render()}
+ if(d.confirm!==undefined){const h=H.find(x=>x.id===S.hid);S.book.unshift({n:h.n,c:h.c,day:S.day,slot:S.slot});return go('done')}
+ if(d.sw!==undefined){S.helper=!S.helper;return render()}
+ if(d.sk){keep();S.hp.skill=d.sk;return render()}
+ if(d.un){keep();S.hp.unit=d.un;return render()}
+ if(d.dy){keep();const a=S.hp.days,i=a.indexOf(d.dy);if(i<0)a.push(d.dy);else a.splice(i,1);return render()}
+ if(d.submit!==undefined){keep();if(!S.hp.rate||!S.hp.days.length)return toast('Add your rate and at least one free day');S.sub=true;go('me');return toast('Sent! Two neighbours will verify you')}
+ if(d.toast)return toast(d.toast);
+});
+render();
+</script>
+</body>
+</html>
